@@ -7,16 +7,15 @@
 #include<string.h>
 #include<stdlib.h>
 
-struct Date
+typedef struct Dates
 {
     int day;
     int month;
     int year;
-};
+}Date;
 
-void validate(struct Date date)
+void validate(Date date)
 {
-    printf("%d %d %d",date.day,date.month, date.year);
     if((date.month>=1)&&(date.month<13))//valid month
     {
         if(date.year%100==0)//century year
@@ -164,7 +163,7 @@ int menu()
     printf("\n");
     return oper;
 }
-void formats(struct Date date)
+void formats(Date date)
 {
     char month[10];
     switch(date.month)
@@ -237,24 +236,24 @@ void formats(struct Date date)
     printf("\nFORMAT (DD/Month/YYYY) : ",date.day,month,date.year);
     printf("\nFORMAT (Month/DD/YYYY) : ",month,date.day,date.year);
 }
-void adddays(struct Date date, int n)
+void adddays(Date date, int n)
 {
-    struct Date ansdate;
+    Date ansdate;
     /*logic*/
 
     formats(ansdate);
 }
-void subdays(struct Date date, int n)
+void subdays(Date date, int n)
 {
-    struct Date ansdate;
+    Date ansdate;
     /*logic*/
 
     formats(ansdate);
 
 }
-void diffdate(struct Date date0, struct Date date1)
+void diffdate(Date date0,Date date1)
 {
-    struct Date ansdate;
+    Date ansdate;
     int nodays;
     /*logic*/
 
@@ -265,7 +264,7 @@ int main()
 {
     int inv = 0;
     int nodays,oper,again=0;
-    struct Date indate, odate;
+    Date indate, odate;
 
     printf("This is a Date converting tool\n\n");
 
